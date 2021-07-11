@@ -36,7 +36,7 @@ public class Customer {
         this.phoneNum = phoneNum;
     }
 
-    public Double getMoney() {
+    public double getMoney() {
         return money;
     }
 

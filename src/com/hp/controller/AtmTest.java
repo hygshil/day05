@@ -1,21 +1,20 @@
 package com.hp.controller;
 
-import com.hp.bean.Customer;
-import com.hp.bean.CustomerData;
+import com.hp.service.CustomerService;
 import com.hp.util.TestUtil;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class AtmTest {
 
     private static String cardid;
     private static String cardPwd;
-
+    private static CustomerService customerService;
     public static void main(String[] args) {
+        customerService = new CustomerService();
         //测试客户类的数据
-        CustomerData customerData = CustomerData.getInstance();
-        List<Customer> customerList = customerData.getCustomerList();
+     //   CustomerData customerData = CustomerData.getInstance();
+     //   List<Customer> customerList = customerData.getCustomerList();
         /*for (Customer customer : customerList) {
             System.out.println("customer = " + customer);
         }*/
@@ -27,15 +26,16 @@ public class AtmTest {
             //输入用户名、密码
             doWritePassword();
             //其他操作：1.校验角色  2.判断客户账号密码是否正确
-            dochaeckpassword(cardid,cardPwd);
+            docheckpassword(cardid,cardPwd);
             i++;
          }
     }
     //校验角色和密码
-    private static void dochaeckpassword(String cardid,String cardPwd) {
+    private static void docheckpassword(String cardid,String cardPwd) {
     //先校验角色，用密码长度判断
         if (cardid.length()==8){
             //校验密码是否正确
+            customerService.checkPwd(cardid,cardPwd);
         }
     }
 
