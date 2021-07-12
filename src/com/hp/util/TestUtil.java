@@ -25,4 +25,11 @@ public class TestUtil {
         System.out.println("***********7.2000     8.其他******");
         System.out.println("***********************************");
     }
+    public static void threeLeveOption() {
+        System.out.println("***********************************");
+        System.out.println("***********请输入你想存款的数目：******");
+        System.out.println("***********1.500      2.1000********");
+        System.out.println("***********3.1500     4.其他******");
+        System.out.println("***********************************");
+    }
 }
